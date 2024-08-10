@@ -18,4 +18,32 @@ class UserResponse(BaseModel):
     class Config():
         from_attributes = True
 
+class PostBase(BaseModel):
+    title: str
+    content: str
+    published: bool = True
+
+class PostCreate(PostBase):
+    pass
+
+class PostResponse(PostBase):
+    id: int
+    owner_id: int
+    owner: UserResponse
+
+    class Config():
+        from_attributes = True
+
+class TokenData(BaseModel):
+    id: str
+
+class AccessToken(BaseModel):
+    access_token: str
+    token_type: str 
+
+
+
+
+
+
 
